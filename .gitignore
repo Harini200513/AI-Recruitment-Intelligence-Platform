@@ -1,0 +1,30 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Challenge Large Datasets (Avoid GitHub 100MB push block)
+India_runs_data_and_ai_challenge/candidates.jsonl
+India_runs_data_and_ai_challenge/candidates.jsonl.gz
+India_runs_data_and_ai_challenge/~$bmission_spec.docx
+
+# Local Model Indexes & Embedding Cache (Generated dynamically)
+models/embeddings_cache.pkl
+models/faiss_index.bin
+
+# Outputs (Generated locally)
+output/
+submission.csv
+submission.xlsx
+
+# Scratch / Temp directories
+scratch/
+.gemini/

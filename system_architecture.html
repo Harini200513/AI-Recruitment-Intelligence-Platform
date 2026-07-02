@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Architecture</title>
+<style>
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  .architecture-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1500px;
+    position: relative;
+  }
+  .layer {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 30px;
+    border: 2px solid;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+  }
+  .layer-1 { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+  .layer-2 { border-color: #34d399; box-shadow: 0 0 20px rgba(52, 211, 153, 0.2); }
+  .layer-3 { border-color: #a78bfa; box-shadow: 0 0 20px rgba(167, 139, 250, 0.2); }
+  .layer-4 { border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
+  
+  .layer h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+  }
+  .layer-1 h2 { color: #38bdf8; }
+  .layer-2 h2 { color: #34d399; }
+  .layer-3 h2 { color: #a78bfa; }
+  .layer-4 h2 { color: #fbbf24; }
+  
+  .component {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-left: 4px solid;
+    color: #cbd5e1;
+  }
+  .layer-1 .component { border-left-color: #38bdf8; }
+  .layer-2 .component { border-left-color: #34d399; }
+  .layer-3 .component { border-left-color: #a78bfa; }
+  .layer-4 .component { border-left-color: #fbbf24; }
+  
+  .component strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
+    font-size: 1.05rem;
+  }
+  
+  /* Arrows */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -32px;
+    width: 24px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: -6px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 10px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .flow-text {
+    position: absolute;
+    top: -25px;
+    right: -60px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="architecture-container">
+  <!-- Layer 1 -->
+  <div class="layer layer-1">
+    <h2>1. Presentation Layer (UI)</h2>
+    <div class="component">
+      <strong>Streamlit Dashboard Frontend</strong>
+      Single-page app runtime
+    </div>
+    <div class="component">
+      <strong>Control Panel</strong>
+      Dynamic weights sliders, filter presets, uploaders
+    </div>
+    <div class="component">
+      <strong>Data Visualization</strong>
+      Interactive radar plots, skill grids, KPIs
+    </div>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="layer layer-2">
+    <h2>2. Pipeline & Orchestration</h2>
+    <div class="component">
+      <strong>Fast L1 Heuristic Filter</strong>
+      Removes Honeypots & Consulting Companies
+    </div>
+    <div class="component">
+      <strong>Text Normalization Engine</strong>
+      Cleans & parses raw resumes/JDs
+    </div>
+    <div class="component">
+      <strong>Anonymization Engine</strong>
+      Scrubs demographic fields to prevent bias
+    </div>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- Layer 3 -->
+  <div class="layer layer-3">
+    <h2>3. Semantic AI Modeling</h2>
+    <div class="component">
+      <strong>L2 Fast Vector Retrieval</strong>
+      FAISS cosine similarity matching
+    </div>
+    <div class="component">
+      <strong>Deep Reranker</strong>
+      Cross-Encoder ms-marco-MiniLM contextual scoring
+    </div>
+    <div class="component">
+      <strong>Multi-Objective Scorer</strong>
+      & Explainable Reasoning Engine
+    </div>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- Layer 4 -->
+  <div class="layer layer-4">
+    <h2>4. Data & Local Cache Layer</h2>
+    <div class="component">
+      <strong>Local Data Ingestion</strong>
+      candidates.jsonl / sample_candidates.json
+    </div>
+    <div class="component">
+      <strong>Local Vector Store Index</strong>
+      FAISS flat index flatip binary bin
+    </div>
+    <div class="component">
+      <strong>Singleton Inference Cache</strong>
+      Pickled SHA-256 string hashes
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

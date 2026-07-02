@@ -1,0 +1,71 @@
+# Redrob Hackathon — Submission Metadata
+#
+# Copied and completed from the official submission_metadata_template.yaml.
+# Stage 3 reviews check this file for validation.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "AI-Recruiter-Team"
+
+primary_contact:
+  name: "Participant Full Name"
+  email: "participant@example.com"
+  phone: "+91-9999999999"
+
+team_members:
+  - name: "Participant Full Name"
+    email: "participant@example.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/USER/redrob-ai-ranker"
+sandbox_link: "https://huggingface.co/spaces/USER/redrob-ranker"
+reproduce_command: "python rank.py --candidates ./India_runs_data_and_ai_challenge/candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local PC (Windows)"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.10.11"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini"
+  - "Claude"
+
+ai_usage_summary: |
+  Used AI assistants for code architecture design, pipeline logic reviews, 
+  and Streamlit theme formatting edits. No candidate data was sent to any external LLM APIs.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  A hybrid scoring model that balances Jaccard skills overlap, years of experience, 
+  degree relevance, and behavioral signals (availability metrics). 
+  Features a multi-stage L1/L2 retrieval pipeline to sort 100K profiles on CPU under 1 minute.
+  L1 runs fast heuristic exclusions of honeypots, service companies, and title stuffers, 
+  whilst L2 runs sentence embeddings and Cross-Encoder reranking on the top 1,000 candidates.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
